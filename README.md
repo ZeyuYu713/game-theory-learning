@@ -9,6 +9,7 @@
 - 按下表进入各讲笔记与题库，先做题、再对照完整求解过程。
 
 ## 九讲知识框架
+
 | 讲次 | 主题 | 进度 |
 | --- | --- | --- |
 | Lecture 1 | Strategic-Form Games I：策略式博弈、优势策略、纳什均衡 | [笔记](notes/lecture-01-strategic-form-games.md) · [习题](exercises/lecture-01-exercises.md) |
@@ -35,13 +36,12 @@
 
 每讲尽量保持相同结构：
 
-1. **基本概念**：明确博弈参与者、行动、策略、信息结构与支付。
-2. **求解方法**：从最佳反应或逆向归纳出发，逐步计算均衡。
-3. **经典案例**：把模型放回企业竞争、谈判、合同等实际情境。
-4. **标准练习**：先独立完成题目，再对照逐步解析与易错点。
+1. <strong>基本概念</strong>：明确博弈参与者、行动、策略、信息结构与支付。
+2. <strong>求解方法</strong>：从最佳反应或逆向归纳出发，逐步计算均衡。
+3. <strong>经典案例</strong>：把模型放回企业竞争、谈判、合同等实际情境。
+4. <strong>标准练习</strong>：先独立完成题目，再对照逐步解析与易错点。
 
-数学公式使用 GitHub 原生 LaTeX 渲染；博弈树采用 Mermaid，均可直接在 GitHub 页面阅读。
-
+数学公式使用 GitHub 原生 MathJax 渲染；博弈树采用 Mermaid，均可直接在 GitHub 页面阅读。
 
 ## 综合训练与内容校验
 
@@ -54,3 +54,5 @@
 node scripts/check-docs.mjs
 node scripts/normalize-math.mjs --check
 ```
+
+格式约定：正文用 `<strong>内容</strong>` 加粗；行内公式采用 GitHub 支持的数学定界符；独立公式使用 `math` 代码块，分式始终写全括号。

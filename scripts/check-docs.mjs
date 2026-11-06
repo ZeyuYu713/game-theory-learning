@@ -1,8 +1,9 @@
 /**
  * Basic structural checks for all Markdown learning notes:
- * - closed fenced blocks and balanced TeX braces in math blocks
- * - no raw $$ delimiters or unprotected inline math
- * - balanced Markdown bold markers on ordinary prose lines
+ * - closed fenced blocks and balanced TeX braces in math blocks / inline math
+ * - no raw $$ delimiters, unprotected inline math, or Markdown ** emphasis
+ * - explicit braced arguments for TeX fractions and no HTML entities in math
+ * - paired <strong> HTML emphasis tags
  * - local Markdown links resolve to existing files
  * - no duplicate level-2 headings in one document
  *
@@ -24,12 +25,43 @@ for (const dir of dirs) {
 }
 
 const problems = [];
+
+function validateTex(expression, where) {
+  let depth = 0;
+  for (let i = 0; i < expression.length; i++) {
+    if (expression[i] === "\\" && /[{}]/.test(expression[i + 1] || "")) {
+      i++;
+      continue;
+    }
+    if (expression[i] === "{") depth++;
+    if (expression[i] === "}") depth--;
+    if (depth < 0) {
+      problems.push(where + " TeX brace closes before opening");
+      break;
+    }
+  }
+  if (depth !== 0) problems.push(where + " unbalanced TeX braces: " + depth);
+  if (/\\(?:frac|tfrac|dfrac)(?!\{)/.test(expression)) {
+    problems.push(where + " TeX fraction without braced numerator");
+  }
+  if (/&(?:amp|lt|gt);/.test(expression)) {
+    problems.push(where + " HTML entity inside TeX formula");
+  }
+  if (/(?:_\{[^{}]*\}|_[a-zA-Z0-9])\s*_(?:\{|[a-zA-Z0-9])/.test(expression)) {
+    problems.push(where + " repeated subscript (potential MathJax double-subscript error)");
+  }
+  if (/(?:\^\{[^{}]*\}|\^[a-zA-Z0-9])\s*\^(?:\{|[a-zA-Z0-9])/.test(expression)) {
+    problems.push(where + " repeated superscript");
+  }
+}
+
 for (const filename of files) {
   const full = path.join(root, filename);
   const lines = fs.readFileSync(full, "utf8").split("\n");
   const headingSet = new Set();
   let fenced = null;
   let braceDepth = 0;
+  let mathBuffer = [];
 
   for (let index = 0; index < lines.length; index++) {
     const line = lines[index];
@@ -42,13 +74,16 @@ for (const filename of files) {
       if (fenced === null) {
         fenced = /^\s*\x60{3,}math\s*$/.test(line) ? "math" : "other";
         braceDepth = 0;
+        mathBuffer = [];
       } else {
+        if (fenced === "math") validateTex(mathBuffer.join("\n"), where);
         fenced = null;
       }
       continue;
     }
 
     if (fenced === "math") {
+      mathBuffer.push(line);
       for (const letter of line) {
         if (letter === "{") braceDepth++;
         if (letter === "}") braceDepth--;
@@ -61,13 +96,15 @@ for (const filename of files) {
     if (fenced !== null) continue;
 
     if (line.includes("$$")) problems.push(where + " raw $$ delimiter");
+    if (line.includes("**")) problems.push(where + " raw Markdown bold delimiter (use <strong>)");
     if (/(?<![\x60\\])\$(?![\x60$])/.test(line)) {
       problems.push(where + " unprotected inline dollar delimiter");
     }
-    const withoutInlineMath = line.replace(/\$\x60[^\x60]*\x60\$/g, "");
-    const boldMarkers = withoutInlineMath.match(/(?<!\\)\*\*/g) || [];
-    if (boldMarkers.length % 2 !== 0) {
-      problems.push(where + " unbalanced bold markers");
+    const openedStrong = (line.match(/<strong>/g) || []).length;
+    const closedStrong = (line.match(/<\/strong>/g) || []).length;
+    if (openedStrong !== closedStrong) problems.push(where + " unpaired <strong> tags");
+    for (const match of line.matchAll(/\$\x60([^\x60]*)\x60\$/g)) {
+      validateTex(match[1], where);
     }
     if (line.startsWith("## ")) {
       if (headingSet.has(line)) problems.push(where + " duplicate heading");
