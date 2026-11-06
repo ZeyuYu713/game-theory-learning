@@ -16,11 +16,15 @@
 
 贝叶斯博弈可写为
 
-$$G=(N,(A_i),(\Theta_i),p,(u_i)).$$
+```math
+G=(N,(A_i),(\Theta_i),p,(u_i)).
+```
 
 最重要的概念变化是：**策略不再只是一项行动，而是从私人类型到行动的映射**：
 
-$$s_i:\Theta_i\longrightarrow A_i.$$
+```math
+s_i:\Theta_i\longrightarrow A_i.
+```
 
 例如一家企业的成本可能是低 $L$ 或高 $H$，则策略“低成本时扩产，高成本时保守生产”是一项完整策略；仅写“扩产”没有回答高成本类型怎么做。
 
@@ -28,7 +32,9 @@ $$s_i:\Theta_i\longrightarrow A_i.$$
 
 给定自己的类型 $\theta_i$，参与人以条件信念 $p(\theta_{-i}\mid\theta_i)$ 计算行动的条件期望收益。贝叶斯纳什均衡要求每一种类型选择的行动都最优：
 
-$$s_i^*(\theta_i)\in\arg\max_{a_i\in A_i}\sum_{\theta_{-i}}p(\theta_{-i}\mid\theta_i)u_i\bigl(a_i,s_{-i}^*(\theta_{-i}),\theta_i,\theta_{-i}\bigr).$$
+```math
+s_i^{*}(\theta_i)\in\arg\max_{a_i\in A_i}\sum_{\theta_{-i}}p(\theta_{-i}\mid\theta_i)u_i\bigl(a_i,s_{-i}^{*}(\theta_{-i}),\theta_i,\theta_{-i}\bigr).
+```
 
 和普通纳什均衡相比，其核心并没有改变——仍然排除有利单方偏离；区别在于需要**分别检验每一种可能的私人类型**，并使用该类型的条件概率对不知道的状态取期望。
 
@@ -54,11 +60,15 @@ $$s_i^*(\theta_i)\in\arg\max_{a_i\in A_i}\sum_{\theta_{-i}}p(\theta_{-i}\mid\the
 
 进入者若进入，遇到高成本企业可得 1、遇到低成本企业可得 $-1$，期望收益为
 
-$$EU_2(In)=p\cdot1+(1-p)(-1)=2p-1,\qquad EU_2(Out)=0.$$
+```math
+EU_2(In)=p\cdot1+(1-p)(-1)=2p-1,\qquad EU_2(Out)=0.
+```
 
 因此
 
-$$\boxed{p>1/2\Rightarrow In;\quad p<1/2\Rightarrow Out;\quad p=1/2\Rightarrow\text{两行动无差异}}.$$
+```math
+\boxed{p>1/2\Rightarrow In;\quad p<1/2\Rightarrow Out;\quad p=1/2\Rightarrow\text{两行动无差异}}.
+```
 
 完整 BNE 必须同时包括在位企业对两种类型的行动和进入者的行动。例如 $p=0.7$ 时，$((H:D,L:B),In)$ 是 BNE。
 
@@ -66,11 +76,15 @@ $$\boxed{p>1/2\Rightarrow In;\quad p<1/2\Rightarrow Out;\quad p=1/2\Rightarrow\t
 
 设事件 $H$ 表示“高质量”、$E$ 表示“获得某项检测信号”。贝叶斯公式为
 
-$$\boxed{\Pr(H\mid E)=\frac{\Pr(E\mid H)\Pr(H)}{\Pr(E\mid H)\Pr(H)+\Pr(E\mid L)\Pr(L)}}.$$
+```math
+\boxed{\Pr(H\mid E)=\frac{\Pr(E\mid H)\Pr(H)}{\Pr(E\mid H)\Pr(H)+\Pr(E\mid L)\Pr(L)}}.
+```
 
 例如高质量先验概率为 $0.4$；高质量时通过检测的概率为 $0.8$，低质量时通过概率为 $0.2$。观测到通过后，高质量的后验概率为
 
-$$\Pr(H\mid E)=\frac{0.8\cdot0.4}{0.8\cdot0.4+0.2\cdot0.6}=\boxed{\frac8{11}\approx0.727}.$$
+```math
+\Pr(H\mid E)=\frac{0.8\cdot0.4}{0.8\cdot0.4+0.2\cdot0.6}=\boxed{\frac8{11}\approx0.727}.
+```
 
 **先验（prior）是观测前的概率；后验（posterior）是观测后按信号修正的概率。** 注意后验不是单纯的“信号命中率”$0.8$，它还与基础概率和误报率有关。
 
@@ -78,19 +92,29 @@ $$\Pr(H\mid E)=\frac{0.8\cdot0.4}{0.8\cdot0.4+0.2\cdot0.6}=\boxed{\frac8{11}\app
 
 市场逆需求 $P=a-(q_1+q_2)$，企业 1 成本 $C$ 为共同知识；企业 2 成本为 $C_L$（概率 $\theta$）或 $C_H$（概率 $1-\theta$），且 $C_L<C_H$，成本类型只有企业 2 知道。策略写成一个三元组
 
-$$\boxed{(q_1,q_L,q_H)},$$
+```math
+\boxed{(q_1,q_L,q_H)},
+```
 
 其中企业 2 的低成本与高成本类型分别生产 $q_L,q_H$。设 $\bar C=\theta C_L+(1-\theta)C_H$。企业 1 的最佳反应基于预期产量 $E[q_2]=\theta q_L+(1-\theta)q_H$：
 
-$$q_1=\frac{a-C-E[q_2]}2,\quad q_L=\frac{a-C_L-q_1}2,\quad q_H=\frac{a-C_H-q_1}2.$$
+```math
+q_1=\frac{a-C-E[q_2]}2,\quad q_L=\frac{a-C_L-q_1}2,\quad q_H=\frac{a-C_H-q_1}2.
+```
 
 当三个产量均为正的内部解成立时，联立得
 
-$$\boxed{q_1^*=\frac{a-2C+\bar C}{3}},$$
+```math
+\boxed{q_1^{*}=\frac{a-2C+\bar C}{3}},
+```
 
-$$\boxed{q_L^*=\frac{a-2C_L+C}{3}-\frac{(1-\theta)(C_H-C_L)}6},$$
+```math
+\boxed{q_L^{*}=\frac{a-2C_L+C}{3}-\frac{(1-\theta)(C_H-C_L)}6},
+```
 
-$$\boxed{q_H^*=\frac{a-2C_H+C}{3}+\frac{\theta(C_H-C_L)}6}.$$
+```math
+\boxed{q_H^{*}=\frac{a-2C_H+C}{3}+\frac{\theta(C_H-C_L)}6}.
+```
 
 这一模型突出一个概念：企业 1 不能假设对方“生产一个平均成本类型对应的确定产量”，而应面对两种类型各自的最优生产和加权的预期竞争压力。若某些公式给出负产量，需要重新考虑 $q\ge0$ 的边界均衡。
 
@@ -114,13 +138,17 @@ $$\boxed{q_H^*=\frac{a-2C_H+C}{3}+\frac{\theta(C_H-C_L)}6}.$$
 
 估值为 $v$ 的竞标者若报价 $b\in[0,1/2]$，赢过对手的条件是 $t<2b$。因为 $t\sim U[0,1]$，中标概率为 $2b$，期望收益为
 
-$$EU(b\mid v)=(v-b)\,2b.$$
+```math
+EU(b\mid v)=(v-b)\,2b.
+```
 
 求导可得
 
-$$\frac{\partial EU}{\partial b}=2v-4b=0
+```math
+\frac{\partial EU}{\partial b}=2v-4b=0
 \quad\Longrightarrow\quad
-\boxed{b^*(v)=\frac v2}.$$
+\boxed{b^{*}(v)=\frac v2}.
+```
 
 二阶导数为 $-4<0$；对于更高出价 $b\ge1/2$，中标概率达到 1，再加价只会降低净收益。由此验证，两位竞标者都使用 $b(v)=v/2$ 互为最佳反应，形成对称贝叶斯纳什均衡。
 

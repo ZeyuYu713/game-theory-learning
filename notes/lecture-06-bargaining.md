@@ -22,7 +22,9 @@
 
 为了使玩家 2 立即接受，玩家 1 必须至少给出 $\delta_2$，故第一轮均衡提议为
 
-$$\boxed{(x_1^*,1-x_1^*)=(1-\delta_2,\delta_2)}.$$
+```math
+\boxed{(x_1^{*},1-x_1^{*})=(1-\delta_2,\delta_2)}.
+```
 
 只考虑第一轮“谁报价谁占优”并不够：真正决定当前分配的是**被报价方拒绝后能得到多少**。玩家 2 越有耐心，玩家 1 必须让出的份额越大。
 
@@ -30,12 +32,16 @@ $$\boxed{(x_1^*,1-x_1^*)=(1-\delta_2,\delta_2)}.$$
 
 三轮中由玩家 1、2、1 依次报价，第三轮玩家 1 可拿全部。第二轮，玩家 2 必须给玩家 1 至少 $\delta_1$，自己留下 $1-\delta_1$。第一轮，玩家 1 为使玩家 2 不拒绝，须给出至少 $\delta_2(1-\delta_1)$，因此
 
-$$\boxed{x_1^*=1-\delta_2(1-\delta_1)}.$$
+```math
+\boxed{x_1^{*}=1-\delta_2(1-\delta_1)}.
+```
 
 一般有限 $T$ 轮的算法是：从最后一期算出接受方的保留价值，倒数第二期报价者支付其折现后的保留价值，如此反复向前。若 $T$ 为偶数，最后一期由玩家 2 报价，可写为
 
-$$x_1^*=(1-\delta_2)\sum_{k=0}^{T/2-1}(\delta_1\delta_2)^k
-=\frac{(1-\delta_2)\{1-(\delta_1\delta_2)^{T/2}\}}{1-\delta_1\delta_2}.$$
+```math
+x_1^{*}=(1-\delta_2)\sum_{k=0}^{T/2-1}(\delta_1\delta_2)^k
+=\frac{(1-\delta_2)\{1-(\delta_1\delta_2)^{T/2}\}}{1-\delta_1\delta_2}.
+```
 
 有限轮次的分配往往依赖最后一轮是谁报价。不能直接拿无限期公式代替有限轮次计算。
 
@@ -43,15 +49,21 @@ $$x_1^*=(1-\delta_2)\sum_{k=0}^{T/2-1}(\delta_1\delta_2)^k
 
 在无限轮交替报价、完全信息、各期共同知道折现因子且不存在外生破裂的标准模型中，有唯一的 SPNE **支付结果**。若本期由玩家 $i$ 报价、对方为 $j$，则均衡中报价者拿
 
-$$\boxed{v_i=\frac{1-\delta_j}{1-\delta_i\delta_j}},$$
+```math
+\boxed{v_i=\frac{1-\delta_j}{1-\delta_i\delta_j}},
+```
 
 被报价方得到
 
-$$\boxed{1-v_i=\frac{\delta_j(1-\delta_i)}{1-\delta_i\delta_j}}.$$
+```math
+\boxed{1-v_i=\frac{\delta_j(1-\delta_i)}{1-\delta_i\delta_j}}.
+```
 
 为什么成立？设 $v_i$ 表示玩家 $i$ 作为本期报价者能获得的份额。玩家 $j$ 拒绝本期方案后，下期自己报价，折现后的继续收益为 $\delta_jv_j$，所以本期报价者需要给其恰好 $\delta_jv_j$：
 
-$$v_i=1-\delta_jv_j,\qquad v_j=1-\delta_iv_i.$$
+```math
+v_i=1-\delta_jv_j,\qquad v_j=1-\delta_iv_i.
+```
 
 联立便得到上述公式，均衡中立即达成协议，没有理由支付额外的延迟成本。
 
@@ -69,9 +81,11 @@ $$v_i=1-\delta_jv_j,\qquad v_j=1-\delta_iv_i.$$
 
 在对称的平稳均衡中，每名议员等待下一轮的期望份额为 $1/3$，贴现后的拒绝价值为 $\delta/3$。提案人已经有自己一票，只需要收买**另外一名议员**，因此支付其刚好 $\delta/3$、不给第三人份额，自己获得
 
-$$\boxed{x_{\mathrm{proposer}}=1-\frac\delta3},\qquad
+```math
+\boxed{x_{\mathrm{proposer}}=1-\frac\delta3},\qquad
 \boxed{x_{\mathrm{partner}}=\frac\delta3},\qquad
-\boxed{x_{\mathrm{excluded}}=0}.$$
+\boxed{x_{\mathrm{excluded}}=0}.
+```
 
 例如 $\delta=0.9$，提案人保留 $0.7$，支持者获 $0.3$，第三人获 0。这里的关键是**最低胜利联盟**：通过规则要求哪几票，就决定报价者需要购买多少支持。若采用允许修订提案的开放规则（open rule），可能出现不同的联盟与分配逻辑，不能不加修改地照搬闭合规则结果。
 
@@ -85,17 +99,19 @@ $$\boxed{x_{\mathrm{proposer}}=1-\frac\delta3},\qquad
 
 无限轮交替报价中，第一位报价者的均衡份额为
 
-$$x_1^*=\frac{1-\delta_2}{1-\delta_1\delta_2}.$$
+```math
+x_1^{*}=\frac{1-\delta_2}{1-\delta_1\delta_2}.
+```
 
 分别对两个折现因子求偏导：
 
-$$
-\frac{\partial x_1^*}{\partial\delta_1}
+```math
+\frac{\partial x_1^{*}}{\partial\delta_1}
 =\frac{\delta_2(1-\delta_2)}{(1-\delta_1\delta_2)^2}>0,
 \qquad
-\frac{\partial x_1^*}{\partial\delta_2}
+\frac{\partial x_1^{*}}{\partial\delta_2}
 =-\frac{1-\delta_1}{(1-\delta_1\delta_2)^2}<0.
-$$
+```
 
 因而**自己的耐心提高会提高自己的报价份额；对方更有耐心则会降低自己的报价份额**。例如 $\delta_1=0.8,\delta_2=0.9$ 时，玩家 1 取得 $5/14\approx0.357$；若只有玩家 1 的折现因子提高到 $0.9$，其份额提高到 $10/19\approx0.526$。
 

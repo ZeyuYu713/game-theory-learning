@@ -44,7 +44,9 @@
 
 **标准答案**：$S_1=\{CG,CH,DG,DH\}$，$S_2=\{E,F\}$；
 
-$$\boxed{NE=\{(CH,F),(DG,E),(DH,E)\}},\qquad\boxed{SPNE=\{(DG,E)\}}.$$
+```math
+\boxed{NE=\{(CH,F),(DG,E),(DH,E)\}},\qquad\boxed{SPNE=\{(DG,E)\}}.
+```
 
 **解析**：
 
@@ -63,7 +65,9 @@ $$\boxed{NE=\{(CH,F),(DG,E),(DH,E)\}},\qquad\boxed{SPNE=\{(DG,E)\}}.$$
 
 **标准答案**：
 
-$$\boxed{\{(C,FHK),(C,FIK),(C,GHK),(D,GHK),(E,GHK),(D,GIK)\}}.$$
+```math
+\boxed{\{(C,FHK),(C,FIK),(C,GHK),(D,GHK),(E,GHK),(D,GIK)\}}.
+```
 
 **解析**：玩家 2 在 $C$ 后 $F/G$ 无差异，在 $D$ 后 $H/I$ 无差异，在 $E$ 后选 $K$，可行策略为 $FHK,FIK,GHK,GIK$。分别考察玩家 1 的初始收益向量：$(3,1,1)$、$(3,2,1)$、$(1,1,1)$、$(1,2,1)$，由此得到 $1+1+3+1=6$ 个 SPNE。
 
@@ -94,7 +98,9 @@ $$\boxed{\{(C,FHK),(C,FIK),(C,GHK),(D,GHK),(E,GHK),(D,GIK)\}}.$$
 
 Stackelberg 中先看跟随者：$q_2(q_1)=(90-q_1)/2$。领导者利润
 
-$$\pi_1=(90-q_1-q_2)q_1=\frac{90-q_1}{2}q_1.$$
+```math
+\pi_1=(90-q_1-q_2)q_1=\frac{90-q_1}{2}q_1.
+```
 
 一阶条件 $45-q_1=0$，得到 $q_1=45$；因此 $q_2=22.5$，$P=32.5$，最后计算利润为 $22.5\times45=1012.5$ 与 $22.5\times22.5=506.25$。
 

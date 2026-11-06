@@ -53,8 +53,10 @@ flowchart TD
 
 若反需求 $P=a-b(q_1+q_2)$，边际成本相同为 $c$，则
 
-$$BR_i(q_j)=\max\left\{0,\frac{a-c-bq_j}{2b}\right\},\qquad
-q_i^*=\frac{a-c}{3b}.$$
+```math
+BR_i(q_j)=\max\left\{0,\frac{a-c-bq_j}{2b}\right\},\qquad
+q_i^{*}=\frac{a-c}{3b}.
+```
 
 必须确认企业同时决定产量；若存在先后顺序，应改用 Stackelberg 分析。
 
@@ -62,8 +64,10 @@ q_i^*=\frac{a-c}{3b}.$$
 
 设合作收益 $R$、单方背叛收益 $T$、共同背叛收益 $P$，则合作路径上不背叛的条件为
 
-$$\frac{R}{1-\delta}\ge T+\frac{\delta P}{1-\delta}
-\iff\boxed{\delta\ge\frac{T-R}{T-P}}.$$
+```math
+\frac{R}{1-\delta}\ge T+\frac{\delta P}{1-\delta}
+\iff\boxed{\delta\ge\frac{T-R}{T-P}}.
+```
 
 必须再检查触发后惩罚行动是否可信，不能只验证正常合作路径。
 
@@ -71,8 +75,10 @@ $$\frac{R}{1-\delta}\ge T+\frac{\delta P}{1-\delta}
 
 完全信息、指数贴现且玩家 1 先报价时：
 
-$$x_1=\frac{1-\delta_2}{1-\delta_1\delta_2},\qquad
-x_2=\frac{\delta_2(1-\delta_1)}{1-\delta_1\delta_2}.$$
+```math
+x_1=\frac{1-\delta_2}{1-\delta_1\delta_2},\qquad
+x_2=\frac{\delta_2(1-\delta_1)}{1-\delta_1\delta_2}.
+```
 
 有限轮谈判应从最后一期倒推，不能把这个无限期公式直接代入。
 
@@ -80,8 +86,10 @@ x_2=\frac{\delta_2(1-\delta_1)}{1-\delta_1\delta_2}.$$
 
 对于类型 $H,L$ 和信号 $m$：
 
-$$\Pr(H\mid m)=\frac{\Pr(m\mid H)\Pr(H)}
-{\Pr(m\mid H)\Pr(H)+\Pr(m\mid L)\Pr(L)}.$$
+```math
+\Pr(H\mid m)=\frac{\Pr(m\mid H)\Pr(H)}
+{\Pr(m\mid H)\Pr(H)+\Pr(m\mid L)\Pr(L)}.
+```
 
 先验类型概率与信号的条件准确率是两种不同信息。动态信号题中，求出后验后还要逐类型检验发送者是否愿意模仿其他类型。
 
@@ -89,7 +97,9 @@ $$\Pr(H\mid m)=\frac{\Pr(m\mid H)\Pr(H)}
 
 收益博弈的核心要求
 
-$$\sum_i x_i=v(N),\qquad \sum_{i\in S}x_i\ge v(S)\quad\text{对全部联盟 }S.$$
+```math
+\sum_i x_i=v(N),\qquad \sum_{i\in S}x_i\ge v(S)\quad\text{对全部联盟 }S.
+```
 
 三人 Shapley 值中，某玩家最先加入和最后加入的权重各为 $1/3$；第二个加入且此前为某个指定玩家的权重是 $1/6$。成本分摊博弈的核心不等号要反向。
 

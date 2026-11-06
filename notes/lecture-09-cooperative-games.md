@@ -14,7 +14,9 @@
 
 设参与人集合为 $N=\{1,\ldots,n\}$，任意子集 $S\subseteq N$ 称为联盟（coalition）；所有人组成的联盟 $N$ 称为大联盟（grand coalition）。可转移效用合作博弈写为
 
-$$\boxed{(N,v)},\qquad v:2^N\to\mathbb R,\quad v(\varnothing)=0.$$
+```math
+\boxed{(N,v)},\qquad v:2^N\to\mathbb R,\quad v(\varnothing)=0.
+```
 
 $v(S)$ 是联盟 $S$ 独立行动时最多能创造的总价值；可转移效用表示联盟内部可用支付、转账等方式重新分配总收益。若价值并不能任意转移，例如成员只在乎不可交易的环境质量、政策结果或个别名额，就不能直接套用 TU 模型，应考虑非可转移效用（NTU）框架。
 
@@ -26,11 +28,15 @@ $v(S)$ 是联盟 $S$ 独立行动时最多能创造的总价值；可转移效�
 
 超可加性（superadditivity）针对互不相交联盟 $S,T$：
 
-$$v(S\cup T)\ge v(S)+v(T).$$
+```math
+v(S\cup T)\ge v(S)+v(T).
+```
 
 它意味着联合行动至少不损失两组单独行动的总价值。单调性（monotonicity）针对 $S\subseteq T$：
 
-$$v(S)\le v(T).$$
+```math
+v(S)\le v(T).
+```
 
 它意味着联盟增加成员不会使总价值下降。这两个条件并不完全等同；尤其在允许负的单人成员价值等一般 TU 模型中，不能仅由一个条件就不加证明地推另一个。
 
@@ -40,11 +46,15 @@ $$v(S)\le v(T).$$
 
 若大联盟形成，收益分配向量为 $x=(x_1,\ldots,x_n)$。**有效性**（efficiency）要求全部价值恰好分完：
 
-$$\boxed{\sum_{i\in N}x_i=v(N)}.$$
+```math
+\boxed{\sum_{i\in N}x_i=v(N)}.
+```
 
 **个体理性**（individual rationality）要求每人至少得到单独行动价值：
 
-$$\boxed{x_i\ge v(\{i\})}.$$
+```math
+\boxed{x_i\ge v(\{i\})}.
+```
 
 同时满足两者的分配称为可归责分配或 imputation。有效分配不一定对所有人有吸引力；例如总收益很高，但若某人拿得比单独经营少，就缺少参加联盟的动机。
 
@@ -52,19 +62,25 @@ $$\boxed{x_i\ge v(\{i\})}.$$
 
 仅要求每人“不如单干差”还不够：两家企业可能合在一起获得比目前两人份额之和更高的收益。核心要求对**所有可能联盟**保持联盟理性：
 
-$$\boxed{\mathrm{Core}(v)=\left\{x\in\mathbb R^n:\sum_{i\in N}x_i=v(N),\ \sum_{i\in S}x_i\ge v(S)\ \forall S\subseteq N\right\}}.$$
+```math
+\boxed{\mathrm{Core}(v)=\left\{x\in\mathbb R^n:\sum_{i\in N}x_i=v(N),\ \sum_{i\in S}x_i\ge v(S)\ \forall S\subseteq N\right\}}.
+```
 
 为何不等号是 $\ge$？若某个联盟 $S$ 的现有合计分配 $x(S)$ 小于其单独创造价值 $v(S)$，该联盟可以退出大联盟，把更多收益分给自己的成员，所以原方案不稳定。
 
 **经典三人例题：** 令 $v(i)=0$、$v(12)=1$、$v(13)=2$、$v(23)=1$、$v(123)=3$。核心必须满足
 
-$$\begin{cases}x_1+x_2+x_3=3,\\x_1,x_2,x_3\ge0,\\x_1+x_2\ge1,\\x_1+x_3\ge2,\\x_2+x_3\ge1.\end{cases}$$
+```math
+\begin{cases}x_1+x_2+x_3=3,\\x_1,x_2,x_3\ge0,\\x_1+x_2\ge1,\\x_1+x_3\ge2,\\x_2+x_3\ge1.\end{cases}
+```
 
 例如 $(1,1,1)$ 满足所有不等式，因此属于核心；$(0,1,2)$ 虽然有效且个人份额非负，但联盟 $\{1,3\}$ 的分配和为 2，恰好达到其独立价值，同样可行；$(0,0,3)$ 的 $x_1+x_2=0<1$，不属于核心。
 
 **成本博弈要反转不等号**。若 $x_i$ 表示成员分摊的成本，核心要求
 
-$$\boxed{\sum_{i\in N}x_i=c(N),\qquad\sum_{i\in S}x_i\le c(S)\quad\forall S\subseteq N.}$$
+```math
+\boxed{\sum_{i\in N}x_i=c(N),\qquad\sum_{i\in S}x_i\le c(S)\quad\forall S\subseteq N.}
+```
 
 某联盟当前支付成本若超过其自行建设所需成本，就有动力退出；所以成本分摊不能超过联盟的独立实施成本。
 
@@ -80,7 +96,9 @@ $$\boxed{\sum_{i\in N}x_i=c(N),\qquad\sum_{i\in S}x_i\le c(S)\quad\forall S\subs
 
 Shapley 值不通过寻找“无人愿意退出”的集合，而是通过考虑参与人按不同先后顺序加入联盟时的**边际贡献**进行分配。对于 $n$ 人 TU 博弈：
 
-$$\boxed{\phi_i(v)=\sum_{S\subseteq N\setminus\{i\}}\frac{|S|!(n-|S|-1)!}{n!}\left[v(S\cup\{i\})-v(S)\right].}$$
+```math
+\boxed{\phi_i(v)=\sum_{S\subseteq N\setminus\{i\}}\frac{|S|!(n-|S|-1)!}{n!}\left[v(S\cup\{i\})-v(S)\right].}
+```
 
 其中 $v(S\cup\{i\})-v(S)$ 是玩家 $i$ 加入既有联盟 $S$ 所带来的价值增量；系数是随机排列中恰好由 $S$ 在其之前加入的概率。因此 Shapley 值也等于“所有 $n!$ 种加入顺序下边际贡献的平均值”。
 
@@ -88,7 +106,9 @@ $$\boxed{\phi_i(v)=\sum_{S\subseteq N\setminus\{i\}}\frac{|S|!(n-|S|-1)!}{n!}\le
 
 当 $n=3$ 时，对于玩家 1：
 
-$$\phi_1=\frac13 v(1)+\frac16\{[v(12)-v(2)]+[v(13)-v(3)]\}+\frac13[v(123)-v(23)].$$
+```math
+\phi_1=\frac13 v(1)+\frac16\{[v(12)-v(2)]+[v(13)-v(3)]\}+\frac13[v(123)-v(23)].
+```
 
 玩家 2、3 对称更换下标即可。这个公式对应：自己第一个加入的概率 $1/3$；第二个加入的每种前序联盟权重 $1/6$；最后加入的概率 $1/3$。
 
@@ -96,11 +116,17 @@ $$\phi_1=\frac13 v(1)+\frac16\{[v(12)-v(2)]+[v(13)-v(3)]\}+\frac13[v(123)-v(23)]
 
 设 $v(i)=0$，$v(12)=2$，$v(13)=4$，$v(23)=0$，$v(123)=6$。则
 
-$$\phi_1=\frac{2+4}{6}+\frac{6-0}{3}=\boxed{3},$$
+```math
+\phi_1=\frac{2+4}{6}+\frac{6-0}{3}=\boxed{3},
+```
 
-$$\phi_2=\frac{2+0}{6}+\frac{6-4}{3}=\boxed{1},$$
+```math
+\phi_2=\frac{2+0}{6}+\frac{6-4}{3}=\boxed{1},
+```
 
-$$\phi_3=\frac{4+0}{6}+\frac{6-2}{3}=\boxed{2}.$$
+```math
+\phi_3=\frac{4+0}{6}+\frac{6-2}{3}=\boxed{2}.
+```
 
 因此 $\boxed{\phi=(3,1,2)}$，三人的份额之和为 6，符合总价值有效分配。可以进一步分别检验该向量是否属于核心，二者不是同一概念。
 
@@ -126,11 +152,11 @@ $$\phi_3=\frac{4+0}{6}+\frac{6-2}{3}=\boxed{2}.$$
 
 一般合作博弈的 Shapley 值不保证在核心中。但若博弈具有**凸性（convexity，也称超模性）**，则 Shapley 值属于核心。凸性可以表达为：对任意 $S\subseteq T\subseteq N\setminus\{i\}$，
 
-$$
+```math
 v(S\cup\{i\})-v(S)
 \le
 v(T\cup\{i\})-v(T).
-$$
+```
 
 这表示一个新成员加入较大联盟时的**边际贡献不低于**加入较小联盟时的边际贡献。它比单纯“合并联盟不损失价值”的超可加性要求更强。
 
@@ -138,7 +164,9 @@ $$
 
 对称性与效率性给出 Shapley 值
 
-$$\phi(v)=\left(\frac43,\frac43,\frac43\right).$$
+```math
+\phi(v)=\left(\frac43,\frac43,\frac43\right).
+```
 
 检验核心：个人分配 $4/3\ge0$，任意两人合计 $8/3\ge1$，全体合计 $4=v(N)$；所以它同时满足效率与联盟稳定性。
 
