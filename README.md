@@ -1,19 +1,24 @@
 # 博弈论学习笔记 · Game Theory Learning
 
-按九讲知识体系整理博弈论的基本概念、经济直觉、均衡推导与标准习题。
+按九讲知识体系整理博弈论的基本概念、经济直觉、均衡推导与标准习题。全部九讲均包含独立笔记和逐题解析，并持续补充计算专题。
+
+## 从哪里开始
+
+- [模型识别、均衡概念和公式速查](guides/model-selection-and-solving.md)：遇到陌生题型时，先确认信息结构和适用解法。
+- 按下表进入各讲笔记与题库，先做题、再对照完整求解过程。
 
 ## 九讲知识框架
 | 讲次 | 主题 | 进度 |
 | --- | --- | --- |
-| **Lecture 1** | **Strategic-Form Games I：策略式博弈、优势策略、纳什均衡** | **[笔记](notes/lecture-01-strategic-form-games.md) · [习题](exercises/lecture-01-exercises.md)** |
-| **Lecture 2** | **Strategic-Form Games II：最佳反应、Cournot、Bertrand、位置竞争** | **[笔记](notes/lecture-02-strategic-form-games.md) · [习题](exercises/lecture-02-exercises.md)** |
-| **Lecture 3** | **Mixed Strategies：混合策略与混合策略纳什均衡** | **[笔记](notes/lecture-03-mixed-strategies.md) · [习题](exercises/lecture-03-exercises.md)** |
-| **Lecture 4** | **Extensive-Form Games：动态博弈、逆向归纳、SPNE** | **[笔记](notes/lecture-04-extensive-form-games.md) · [习题](exercises/lecture-04-exercises.md)** |
-| **Lecture 5** | **Repeated Games：有限与无限重复博弈** | **[笔记](notes/lecture-05-repeated-games.md) · [习题](exercises/lecture-05-exercises.md)** |
-| **Lecture 6** | **Bargaining：讨价还价与交替报价** | **[笔记](notes/lecture-06-bargaining.md) · [习题](exercises/lecture-06-exercises.md)** |
-| **Lecture 7** | **Bayesian Games：类型、信念与贝叶斯纳什均衡** | **[笔记](notes/lecture-07-bayesian-games.md) · [习题](exercises/lecture-07-exercises.md)** |
-| **Lecture 8** | **Dynamic Bayesian Games：信号、序贯理性与动态贝叶斯博弈** | **[笔记](notes/lecture-08-dynamic-bayesian-games.md) · [习题](exercises/lecture-08-exercises.md)** |
-| **Lecture 9** | **Cooperative Games：联盟、核心与合作博弈** | **[笔记](notes/lecture-09-cooperative-games.md) · [习题](exercises/lecture-09-exercises.md)** |
+| Lecture 1 | Strategic-Form Games I：策略式博弈、优势策略、纳什均衡 | [笔记](notes/lecture-01-strategic-form-games.md) · [习题](exercises/lecture-01-exercises.md) |
+| Lecture 2 | Strategic-Form Games II：最佳反应、Cournot、Bertrand、位置竞争 | [笔记](notes/lecture-02-strategic-form-games.md) · [习题](exercises/lecture-02-exercises.md) |
+| Lecture 3 | Mixed Strategies：混合策略与混合策略纳什均衡 | [笔记](notes/lecture-03-mixed-strategies.md) · [习题](exercises/lecture-03-exercises.md) |
+| Lecture 4 | Extensive-Form Games：动态博弈、逆向归纳、SPNE | [笔记](notes/lecture-04-extensive-form-games.md) · [习题](exercises/lecture-04-exercises.md) |
+| Lecture 5 | Repeated Games：有限与无限重复博弈 | [笔记](notes/lecture-05-repeated-games.md) · [习题](exercises/lecture-05-exercises.md) |
+| Lecture 6 | Bargaining：讨价还价与交替报价 | [笔记](notes/lecture-06-bargaining.md) · [习题](exercises/lecture-06-exercises.md) |
+| Lecture 7 | Bayesian Games：类型、信念与贝叶斯纳什均衡 | [笔记](notes/lecture-07-bayesian-games.md) · [习题](exercises/lecture-07-exercises.md) |
+| Lecture 8 | Dynamic Bayesian Games：信号、序贯理性与动态贝叶斯博弈 | [笔记](notes/lecture-08-dynamic-bayesian-games.md) · [习题](exercises/lecture-08-exercises.md) |
+| Lecture 9 | Cooperative Games：联盟、核心与合作博弈 | [笔记](notes/lecture-09-cooperative-games.md) · [习题](exercises/lecture-09-exercises.md) |
 
 ## 学习方式
 
