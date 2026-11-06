@@ -2,7 +2,9 @@
  * Normalize mathematical Markdown for GitHub's MathJax renderer.
  *
  * Converts double-dollar display expressions into fenced math blocks,
- * protects inline expressions containing asterisks, and normalizes ^*.
+ * protects every inline expression with GitHub's $-backtick math syntax,
+ * and normalizes ^*. This also fixes dollar signs displayed as literal
+ * text around tuples and adjacent Chinese punctuation.
  *
  * Run: node scripts/normalize-math.mjs
  * Check: node scripts/normalize-math.mjs --check
@@ -12,13 +14,13 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
-const folders = ["notes", "exercises", "guides"];
+const folders = ["notes", "exercises", "guides", "visuals"];
 const checkOnly = process.argv.includes("--check");
 
 function formatInline(line) {
   return line.replace(/(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/g, (full, formula) => {
     if (formula.startsWith("\x60") && formula.endsWith("\x60")) return full;
-    if (!formula.includes("*")) return full;
+    if (formula.includes("\x60")) return full;
     const normalized = formula.replace(/\^\*/g, "^{*}");
     return "$\x60" + normalized + "\x60$";
   });

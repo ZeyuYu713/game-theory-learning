@@ -5,6 +5,7 @@
 ## 从哪里开始
 
 - [模型识别、均衡概念和公式速查](guides/model-selection-and-solving.md)：遇到陌生题型时，先确认信息结构和适用解法。
+- [图解博弈论：九讲可视化入口](visuals/README.md)：通过支付矩阵、最佳反应曲线、博弈树与状态图理解模型。
 - 按下表进入各讲笔记与题库，先做题、再对照完整求解过程。
 
 ## 九讲知识框架
@@ -19,6 +20,16 @@
 | Lecture 7 | Bayesian Games：类型、信念与贝叶斯纳什均衡 | [笔记](notes/lecture-07-bayesian-games.md) · [习题](exercises/lecture-07-exercises.md) |
 | Lecture 8 | Dynamic Bayesian Games：信号、序贯理性与动态贝叶斯博弈 | [笔记](notes/lecture-08-dynamic-bayesian-games.md) · [习题](exercises/lecture-08-exercises.md) |
 | Lecture 9 | Cooperative Games：联盟、核心与合作博弈 | [笔记](notes/lecture-09-cooperative-games.md) · [习题](exercises/lecture-09-exercises.md) |
+
+## 图解博弈论
+
+新增 [九讲图解学习专区](visuals/README.md)。以图形解释均衡的形成机制，包含：
+
+- [Cournot 最佳反应函数与纳什均衡交点](visuals/02-market-competition.md)：原创精确 SVG 坐标图，区分同时产量与先后产量。
+- [混合策略无差异条件与期望收益交点](visuals/03-mixed-strategies.md)：原创 SVG 曲线，说明为什么计算的是对手的混合概率。
+- [动态博弈树与子博弈精炼](visuals/04-extensive-form.md)、[重复博弈触发状态图](visuals/05-repeated-games.md)，以及信息不完全博弈和合作博弈的图解。
+
+图解与原有九讲笔记、习题相互链接，适合先读图再推导公式。
 
 ## 学习方式
 

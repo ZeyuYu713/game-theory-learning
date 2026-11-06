@@ -1,7 +1,8 @@
 /**
  * Basic structural checks for all Markdown learning notes:
  * - closed fenced blocks and balanced TeX braces in math blocks
- * - no raw $$ math delimiters
+ * - no raw $$ delimiters or unprotected inline math
+ * - balanced Markdown bold markers on ordinary prose lines
  * - local Markdown links resolve to existing files
  * - no duplicate level-2 headings in one document
  *
@@ -13,7 +14,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
-const dirs = ["notes", "exercises", "guides"];
+const dirs = ["notes", "exercises", "guides", "visuals"];
 const files = ["README.md"];
 
 for (const dir of dirs) {
@@ -60,6 +61,14 @@ for (const filename of files) {
     if (fenced !== null) continue;
 
     if (line.includes("$$")) problems.push(where + " raw $$ delimiter");
+    if (/(?<![\x60\\])\$(?![\x60$])/.test(line)) {
+      problems.push(where + " unprotected inline dollar delimiter");
+    }
+    const withoutInlineMath = line.replace(/\$\x60[^\x60]*\x60\$/g, "");
+    const boldMarkers = withoutInlineMath.match(/(?<!\\)\*\*/g) || [];
+    if (boldMarkers.length % 2 !== 0) {
+      problems.push(where + " unbalanced bold markers");
+    }
     if (line.startsWith("## ")) {
       if (headingSet.has(line)) problems.push(where + " duplicate heading");
       headingSet.add(line);

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="540" viewBox="0 0 760 540" role="img" aria-labelledby="title desc">
+  <title id="title">Cournot best-response functions</title>
+  <desc id="desc">The first firm's best response and the second firm's best response intersect at q1 equals 30 and q2 equals 30.</desc>
+  <rect width="760" height="540" rx="18" fill="#f8fafc"/>
+  <text x="40" y="39" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#17324f">Cournot: Best-response intersection</text>
+  <g stroke="#e3e9f1" stroke-width="1">
+    <path d="M80 60H650 M80 162.5H650 M80 265H650 M80 367.5H650"/>
+    <path d="M222.5 60V470 M365 60V470 M507.5 60V470"/>
+  </g>
+  <path d="M80 60V470H650" fill="none" stroke="#40566c" stroke-width="2.5"/>
+  <g fill="#40566c" font-family="Arial, sans-serif" font-size="13">
+    <text x="75" y="490">0</text><text x="217" y="490">22.5</text><text x="360" y="490">45</text><text x="502" y="490">67.5</text><text x="641" y="490">90</text>
+    <text x="50" y="474">0</text><text x="45" y="372">22.5</text><text x="50" y="269">45</text><text x="45" y="166">67.5</text><text x="50" y="65">90</text>
+    <text x="350" y="524" font-size="15" font-weight="600">Firm 1 output: q₁</text>
+    <text x="18" y="307" transform="rotate(-90,18,307)" font-size="15" font-weight="600">Firm 2 output: q₂</text>
+  </g>
+  <path d="M80 60L365 470" fill="none" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M80 265L650 470" fill="none" stroke="#ed8936" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M270 333.333V470 M80 333.333H270" fill="none" stroke="#198468" stroke-dasharray="6 5" stroke-width="2"/>
+  <circle cx="270" cy="333.333" r="8.5" fill="#198468" stroke="#ffffff" stroke-width="3"/>
+  <rect x="286" y="291" width="199" height="43" rx="9" fill="#e4f5ef" stroke="#a0d9c6"/>
+  <text x="298" y="309" font-family="Arial, sans-serif" font-weight="700" font-size="15" fill="#136a52">Nash equilibrium</text>
+  <text x="298" y="325" font-family="Arial, sans-serif" font-size="13" fill="#136a52">q₁ = 30, q₂ = 30</text>
+  <rect x="396" y="80" width="235" height="85" rx="10" fill="#ffffff" stroke="#d9e2ed"/>
+  <path d="M410 104H449" stroke="#2563eb" stroke-width="4"/>
+  <text x="459" y="109" font-family="Arial, sans-serif" font-size="13" fill="#243b53">BR₁: q₂ = 90 − 2q₁</text>
+  <path d="M410 143H449" stroke="#ed8936" stroke-width="4"/>
+  <text x="459" y="147" font-family="Arial, sans-serif" font-size="13" fill="#243b53">BR₂: q₂ = 45 − 0.5q₁</text>
+</svg>
