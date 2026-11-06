@@ -1,13 +1,7 @@
 # 博弈论学习笔记 · Game Theory Learning
 
-本仓库原以博弈论课程为主，现新增独立的**系统建模与仿真**学习板块。
+按九讲知识体系整理博弈论的基本概念、经济直觉、均衡推导与标准习题。
 
-## 课程板块导航
-
-| 板块 | 入口 | 当前内容 |
-| --- | --- | --- |
-| 博弈论（Game Theory） | [九讲知识框架](#九讲知识框架) | Lecture 3、4、5 笔记与标准习题 |
-| **系统建模与仿真（System Modeling & Simulation）** | **[进入系统仿真专题](system-simulation/README.md)** | [随机数与检验](system-simulation/notes/01-random-numbers.md) · [离散事件与并行服务台](system-simulation/notes/02-discrete-event-queue.md) · [9 道标准练习](system-simulation/exercises/01-core-exercises.md) |
 ## 九讲知识框架
 | 讲次 | 主题 | 进度 |
 | --- | --- | --- |
