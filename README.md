@@ -31,3 +31,15 @@
 
 数学公式使用 GitHub 原生 LaTeX 渲染；博弈树采用 Mermaid，均可直接在 GitHub 页面阅读。
 
+
+## 综合训练与内容校验
+
+- [九讲跨章节综合练习与完整答案](guides/comprehensive-practice.md)：将模型识别、均衡计算和经济解释合并练习。
+- [模型识别与公式速查](guides/model-selection-and-solving.md)：配合综合题检查均衡概念与标准求解步骤。
+
+如需在本地检查 Markdown 和 GitHub 公式格式，可执行：
+
+```bash
+node scripts/check-docs.mjs
+node scripts/normalize-math.mjs --check
+```
