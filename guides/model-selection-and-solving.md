@@ -4,6 +4,8 @@
 
 [九讲跨章节综合练习与完整答案](comprehensive-practice.md)
 
+[九讲考前题型导航与三道完整示范题](exam-topic-index.md)
+
 [图解博弈论：支付矩阵、最佳反应曲线与博弈树](../visuals/README.md)
 
 先看决策时序、信息结构和是否允许有约束力的联盟，再决定使用什么均衡概念。出现“价格”“信任”或“合作”等关键词，本身不足以判定模型。
@@ -59,10 +61,10 @@ flowchart TD
 
 ```math
 BR_i(q_j)=\max\left\{0,\frac{a-c-bq_j}{2b}\right\},\qquad
-q_i^{*}=\frac{a-c}{3b}.
+q_i^{*}=\max\left\{0,\frac{a-c}{3b}\right\}.
 ```
 
-必须确认企业同时决定产量；若存在先后顺序，应改用 Stackelberg 分析。
+这里假设 $`b>0`$、两家企业成本相同且产量不能为负。当 $`a>c`$ 时，内点解为 $`(a-c)/(3b)`$；当 $`a\le c`$ 时，两家都生产零产量。<strong>不能把负产量作为经济学均衡结果。</strong>另外必须确认企业同时决定产量；若存在先后顺序，应改用 Stackelberg 分析。
 
 ### 3. 无限重复囚徒困境的冷酷触发
 
