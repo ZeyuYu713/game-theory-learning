@@ -50,6 +50,7 @@
 - [九讲原始课件知识点覆盖核查](guides/slide-coverage-audit.md)：按原始九份 PDF 的 529 页顺序，对照笔记与 172 道习题，标明已覆盖、部分覆盖和待补充内容，并列出增补优先级。
 - [九讲跨章节综合练习与完整答案](guides/comprehensive-practice.md)：将模型识别、均衡计算和经济解释合并练习。
 - [考前题型与重点练习索引](guides/exam-topic-index.md)：按题型找到最值得做的原题与逐步解析，并对照跨讲概念。
+- [九讲代表性习题的独立核算记录](guides/calculation-audit.md)：逐讲列出重新计算的方法、关键数值和已补写的解析，附可重复运行的检验脚本。
 - [模型识别与公式速查](guides/model-selection-and-solving.md)：混合策略的五步最佳反应检查、弱支配与边界均衡、扩展式博弈的 NE 与 SPNE 检验、重复博弈中的期限与惩罚策略，以及讨价还价中的异质折现递推和复合拒绝条件。
 
 如需在本地检查 Markdown 和 GitHub 公式格式，可执行：
@@ -57,8 +58,10 @@
 ```bash
 node scripts/check-docs.mjs
 node scripts/normalize-math.mjs --check
+node scripts/verify-exercises.mjs
 ```
 
 第一条命令还会检查各讲题号是否连续、每题是否出现答案段、Markdown 表格列数及覆盖核查表与真实题数是否一致。
+第三条命令独立复算十组代表性模型，涵盖九讲中的纯策略、混合策略、动态博弈、折现谈判、贝叶斯信念、联盟分配等题型。
 
 格式约定：正文用 `<strong>内容</strong>` 加粗；行内公式采用 GitHub 支持的数学定界符；独立公式使用 `math` 代码块，分式始终写全括号。
