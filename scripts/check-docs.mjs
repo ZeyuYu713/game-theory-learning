@@ -6,6 +6,9 @@
  * - paired <strong> HTML emphasis tags
  * - local Markdown links resolve to existing files
  * - no duplicate level-2 headings in one document
+ * - GitHub Markdown tables have consistent column counts
+ * - exercise numbering is continuous and every question includes an answer
+ * - lecture exercise totals agree with the slide-coverage index
  *
  * Usage: node scripts/check-docs.mjs
  * Pair with: node scripts/normalize-math.mjs --check
@@ -25,6 +28,7 @@ for (const dir of dirs) {
 }
 
 const problems = [];
+const exerciseCounts = new Map();
 
 function validateTex(expression, where) {
   let depth = 0;
@@ -62,12 +66,16 @@ for (const filename of files) {
   let fenced = null;
   let braceDepth = 0;
   let mathBuffer = [];
+  let previousTableColumns = null;
+  const exerciseNumbers = [];
+  const questionAnswerMarkers = [];
 
   for (let index = 0; index < lines.length; index++) {
     const line = lines[index];
     const where = filename + ":" + (index + 1);
 
     if (/^\s*\x60{3,}/.test(line)) {
+      previousTableColumns = null;
       if (fenced === "math" && braceDepth !== 0) {
         problems.push(where + " math braces are not balanced: " + braceDepth);
       }
@@ -95,6 +103,32 @@ for (const filename of files) {
     }
     if (fenced !== null) continue;
 
+    // Only a consecutive run of pipe-delimited rows is a potential GFM table.
+    // Escaped pipes inside formulae or prose must not create extra columns.
+    const isTableRow = /^\s*\|.*\|\s*$/.test(line);
+    if (isTableRow) {
+      const columns = line
+        .replace(/^\s*\|/, "")
+        .replace(/\|\s*$/, "")
+        .split(/(?<!\\)\|/).length;
+      if (previousTableColumns !== null && columns !== previousTableColumns) {
+        problems.push(where + " inconsistent table columns: " + columns + " vs " + previousTableColumns);
+      }
+      previousTableColumns = columns;
+    } else {
+      previousTableColumns = null;
+    }
+
+    if (filename.startsWith("exercises/")) {
+      const questionHeading = line.match(/^## 题\s+(\d+)｜/);
+      if (questionHeading) {
+        exerciseNumbers.push(Number(questionHeading[1]));
+        questionAnswerMarkers.push(false);
+      } else if (questionAnswerMarkers.length > 0 && /<strong>(?:标准)?答案(?:与(?:完整)?解析)?[：:]?<\/strong>/.test(line)) {
+        questionAnswerMarkers[questionAnswerMarkers.length - 1] = true;
+      }
+    }
+
     if (line.includes("$$")) problems.push(where + " raw $$ delimiter");
     if (line.includes("**")) problems.push(where + " raw Markdown bold delimiter (use <strong>)");
     if (/(?<![\x60\\])\$(?![\x60$])/.test(line)) {
@@ -121,11 +155,37 @@ for (const filename of files) {
     }
   }
   if (fenced !== null) problems.push(filename + " unclosed fenced block");
+  if (filename.startsWith("exercises/")) {
+    for (let i = 0; i < exerciseNumbers.length; i++) {
+      if (exerciseNumbers[i] !== i + 1) {
+        problems.push(filename + " exercise " + (i + 1) + " is numbered " + exerciseNumbers[i]);
+      }
+      if (!questionAnswerMarkers[i]) {
+        problems.push(filename + " exercise " + (i + 1) + " has no answer marker");
+      }
+    }
+    const lecture = filename.match(/^exercises\/lecture-(\d\d)-exercises\.md$/)?.[1];
+    if (lecture) exerciseCounts.set(lecture, exerciseNumbers.length);
+  }
+}
+
+const audit = fs.readFileSync(path.join(root, "guides/slide-coverage-audit.md"), "utf8");
+const auditRows = [...audit.matchAll(/^\| Lecture (\d)：[^\n]*\|\s*(\d+)\s*\|$/gm)];
+for (const [, lecture, listedCount] of auditRows) {
+  const actualCount = exerciseCounts.get(lecture.padStart(2, "0"));
+  if (actualCount !== Number(listedCount)) {
+    problems.push("slide-coverage-audit.md Lecture " + lecture + " lists " + listedCount + " exercises but has " + actualCount);
+  }
+}
+const listedTotal = audit.match(/^\| 合计 \|[^\n]*\|\s*(\d+)\s*\|$/m)?.[1];
+const actualTotal = [...exerciseCounts.values()].reduce((sum, count) => sum + count, 0);
+if (auditRows.length !== 9 || Number(listedTotal) !== actualTotal) {
+  problems.push("slide-coverage-audit.md total is not aligned with nine exercise files: " + actualTotal);
 }
 
 if (problems.length > 0) {
   for (const problem of problems) process.stderr.write(problem + "\n");
   process.exitCode = 1;
 } else {
-  process.stdout.write("Verified " + files.length + " Markdown files: no structural errors.\n");
+  process.stdout.write("Verified " + files.length + " Markdown files and " + actualTotal + " numbered exercises: no structural errors.\n");
 }
