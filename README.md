@@ -45,9 +45,9 @@
 
 ## 综合训练与内容校验
 
-- [九讲原始课件知识点覆盖核查](guides/slide-coverage-audit.md)：按原始九份 PDF 的 529 页顺序，对照笔记与 164 道习题，标明已覆盖、部分覆盖和待补充内容，并列出增补优先级。
+- [九讲原始课件知识点覆盖核查](guides/slide-coverage-audit.md)：按原始九份 PDF 的 529 页顺序，对照笔记与 166 道习题，标明已覆盖、部分覆盖和待补充内容，并列出增补优先级。
 - [九讲跨章节综合练习与完整答案](guides/comprehensive-practice.md)：将模型识别、均衡计算和经济解释合并练习。
-- [模型识别与公式速查](guides/model-selection-and-solving.md)：新增混合策略的五步最佳反应检查、弱支配和边界均衡，以及税务稽查概率比较静态的推导。
+- [模型识别与公式速查](guides/model-selection-and-solving.md)：混合策略的五步最佳反应检查、弱支配和边界均衡，以及扩展式博弈中完整策略、普通 NE 与 SPNE 的逐层检验。
 
 如需在本地检查 Markdown 和 GitHub 公式格式，可执行：
 
