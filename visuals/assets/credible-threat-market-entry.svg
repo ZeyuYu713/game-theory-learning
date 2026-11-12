@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+<title id="title">图解博弈论：为什么有些威胁根本不可信</title>
+<desc id="desc">六格漫画：新店考虑进入，老店威胁价格战；分析老店价格战收益1与和平竞争收益3后，新店预见老店将和平竞争，因而决定进入。结果收益为3、3。</desc>
+<defs>
+  <style>
+    text{font-family:"Noto Sans CJK SC","Microsoft YaHei","PingFang SC",sans-serif;fill:#202b38}
+    .head{font-size:19px;font-weight:700}
+    .body{font-size:17px}
+    .small{font-size:15px}
+    .value{font-size:25px;font-weight:700}
+    .panel{fill:#fff;stroke:#344054;stroke-width:2}
+    .line{fill:none;stroke:#344054;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .thin{fill:none;stroke:#728099;stroke-width:2;stroke-linecap:round}
+  </style>
+  <g id="figure">
+    <circle cx="0" cy="0" r="26" fill="#fff" stroke="#344054" stroke-width="3"/>
+    <circle cx="-8" cy="-3" r="2.3" fill="#344054"/>
+    <circle cx="8" cy="-3" r="2.3" fill="#344054"/>
+    <path d="M-5 12 Q0 16 5 12" class="thin"/>
+    <path d="M0 26 L0 92 M0 46 L-30 71 M0 46 L30 71 M0 92 L-22 116 M0 92 L22 116" class="line"/>
+  </g>
+  <g id="shop">
+    <rect x="-52" y="-38" width="104" height="93" rx="4" fill="#fff" stroke="#344054" stroke-width="2.5"/>
+    <path d="M-58 -38 H58 L45 -10 H-45 Z" fill="#ddecfc" stroke="#344054" stroke-width="2.5"/>
+    <path d="M-58 -38 L-48 -10 M-30 -38 L-22 -10 M0 -38 V-10 M30 -38 L22 -10 M58 -38 L48 -10" stroke="#344054" stroke-width="2"/>
+    <path d="M-30 5 H-1 V28 H-30 Z M14 5 H38 V55 H14 Z" fill="#f0f4f9" stroke="#344054" stroke-width="2"/>
+    <circle cx="32" cy="33" r="2" fill="#344054"/>
+  </g>
+</defs>
+<rect width="900" height="1200" fill="#fafbfc"/>
+<rect x="23" y="18" width="854" height="72" rx="20" fill="#dfedfb"/>
+<text x="450" y="63" text-anchor="middle" font-size="33" font-weight="700">图解博弈论｜为什么有些威胁根本不可信？</text>
+<text x="450" y="122" text-anchor="middle" font-size="21">从市场进入博弈理解逆向归纳法</text>
+<!-- panels -->
+<rect x="22" y="142" width="422" height="282" rx="15" class="panel"/>
+<rect x="456" y="142" width="422" height="282" rx="15" class="panel"/>
+<rect x="22" y="440" width="422" height="282" rx="15" class="panel"/>
+<rect x="456" y="440" width="422" height="282" rx="15" class="panel"/>
+<rect x="22" y="738" width="422" height="282" rx="15" class="panel"/>
+<rect x="456" y="738" width="422" height="282" rx="15" class="panel"/>
+<!-- panel 1 -->
+<rect x="37" y="157" width="217" height="37" rx="12" fill="#e2f0fd"/><text x="51" y="183" class="head">1. 新店考虑进入</text>
+<use href="#figure" transform="translate(104 278) scale(.77)"/>
+<path d="M128 230 Q140 207 180 218 Q220 203 240 225 Q260 248 238 262 H156 Q128 260 128 230" fill="#fff" stroke="#344054" stroke-width="2.5"/>
+<text x="185" y="242" text-anchor="middle" class="small">要不要进入？</text>
+<path d="M179 370 H267 V318 H179 Z" fill="none" stroke="#8297ab" stroke-width="2.5" stroke-dasharray="8 7"/>
+<rect x="195" y="333" width="58" height="27" rx="5" fill="#e4f2ff" stroke="#7288a2"/>
+<text x="224" y="352" text-anchor="middle" class="small">新店</text>
+<use href="#shop" transform="translate(350 341) scale(.88)"/>
+<rect x="307" y="268" width="85" height="29" rx="6" fill="#fff0db" stroke="#344054" stroke-width="2"/>
+<text x="349" y="288" text-anchor="middle" class="small">老店</text>
+<!-- panel 2 -->
+<rect x="471" y="157" width="210" height="37" rx="12" fill="#e2f0fd"/><text x="485" y="183" class="head">2. 老店发出威胁</text>
+<use href="#figure" transform="translate(540 299) scale(.73)"/>
+<use href="#figure" transform="translate(769 299) scale(.73)"/>
+<rect x="613" y="210" width="235" height="75" rx="20" fill="#fff0db" stroke="#344054" stroke-width="2.5"/>
+<text x="730" y="242" text-anchor="middle" class="body">你敢进入，</text>
+<text x="730" y="267" text-anchor="middle" font-size="19" font-weight="700">我就打价格战！</text>
+<text x="540" y="403" text-anchor="middle" class="small">新店老板</text><text x="769" y="403" text-anchor="middle" class="small">老店老板</text>
+<!-- panel 3 -->
+<rect x="37" y="455" width="210" height="37" rx="12" fill="#e2f0fd"/><text x="51" y="481" class="head">3. 将问题写成博弈树</text>
+<text x="232" y="524" class="body" text-anchor="middle">收益顺序：（新店，老店）</text>
+<rect x="165" y="544" width="134" height="42" rx="8" fill="#e2f0fd" stroke="#677990"/><text x="232" y="571" text-anchor="middle" class="body">新店：进入？</text>
+<path d="M184 586 L105 627 M277 586 L360 627" class="thin"/>
+<text x="113" y="605" class="small">不进入</text><text x="319" y="605" class="small">进入</text>
+<rect x="62" y="634" width="92" height="36" rx="6" fill="#edf1f5" stroke="#9baaba"/>
+<text x="108" y="658" text-anchor="middle" class="body">(0, 3)</text>
+<rect x="294" y="626" width="128" height="39" rx="7" fill="#fff0db" stroke="#9d8262"/>
+<text x="358" y="652" text-anchor="middle" class="body">老店选择</text>
+<path d="M325 665 L289 687 M388 665 L411 687" class="thin"/>
+<text x="290" y="702" text-anchor="middle" class="small">价格战</text>
+<text x="398" y="702" text-anchor="middle" class="small">和平</text>
+<text x="291" y="715" text-anchor="middle" class="small">(1,1)</text>
+<text x="400" y="715" text-anchor="middle" class="small">(3,3)</text>
+<!-- panel 4 -->
+<rect x="471" y="455" width="284" height="37" rx="12" fill="#e2f0fd"/><text x="485" y="481" class="head">4. 比较老店事后的收益</text>
+<rect x="488" y="526" width="358" height="50" rx="11" fill="#edf3f8" stroke="#aeb9c5"/>
+<text x="509" y="558" class="body">价格战：老店收益 = 1</text>
+<rect x="488" y="589" width="358" height="50" rx="11" fill="#fff0db" stroke="#d8b381"/>
+<text x="509" y="621" class="body">和平竞争：老店收益 = 3</text>
+<text x="665" y="690" text-anchor="middle" class="value" fill="#aa6323">3 &gt; 1</text>
+<text x="665" y="711" text-anchor="middle" class="small">进入发生后，老店选择和平竞争</text>
+<!-- panel 5 -->
+<rect x="37" y="753" width="285" height="37" rx="12" fill="#e2f0fd"/><text x="51" y="779" class="head">5. 逆向归纳与威胁可信性</text>
+<use href="#figure" transform="translate(103 882) scale(.75)"/>
+<circle cx="166" cy="834" r="17" fill="#f6d594" stroke="#c78632" stroke-width="2"/>
+<path d="M166 821 L166 831 M166 839 L166 846" stroke="#9c641e" stroke-width="2"/>
+<rect x="190" y="816" width="231" height="149" rx="14" fill="#fff6e9" stroke="#d8bc92"/>
+<text x="306" y="852" text-anchor="middle" class="body">老店事后会选和平竞争。</text>
+<text x="306" y="889" text-anchor="middle" class="body">新店预见到这一反应，</text>
+<text x="306" y="927" text-anchor="middle" font-size="20" font-weight="700">因此不受威胁影响。</text>
+<text x="306" y="956" text-anchor="middle" class="small">口头威胁不等于可信承诺</text>
+<!-- panel 6 -->
+<rect x="471" y="753" width="170" height="37" rx="12" fill="#e2f0fd"/><text x="485" y="779" class="head">6. 最终结果</text>
+<use href="#shop" transform="translate(590 865) scale(.82)"/>
+<use href="#shop" transform="translate(743 865) scale(.82)"/>
+<rect x="557" y="791" width="65" height="26" rx="4" fill="#e2f0fd" stroke="#7288a2"/>
+<rect x="710" y="791" width="65" height="26" rx="4" fill="#fff0db" stroke="#9d8262"/>
+<text x="589" y="809" class="small" text-anchor="middle">新店</text><text x="742" y="809" class="small" text-anchor="middle">老店</text>
+<rect x="485" y="945" width="378" height="58" rx="12" fill="#e2f0fd"/>
+<text x="674" y="968" text-anchor="middle" class="body">新店进入 → 老店和平竞争</text>
+<text x="674" y="992" text-anchor="middle" class="head">最终收益：（3，3）</text>
+<!-- footer -->
+<rect x="22" y="1038" width="856" height="142" rx="15" fill="#fff" stroke="#344054" stroke-width="2"/>
+<rect x="38" y="1055" width="161" height="104" rx="12" fill="#e2f0fd"/>
+<text x="119" y="1117" font-size="25" text-anchor="middle" font-weight="700">知识点</text>
+<path d="M217 1060 V1158" stroke="#b8c4d0" stroke-width="2"/>
+<text x="244" y="1084" class="body">扩展式博弈：明确行动顺序与各终点收益</text>
+<text x="244" y="1117" class="body">逆向归纳法：先求后手最优反应，再分析先手</text>
+<text x="244" y="1150" class="body">子博弈精炼均衡：要求后续决策同样理性</text>
+</svg>
