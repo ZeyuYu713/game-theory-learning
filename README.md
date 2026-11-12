@@ -26,6 +26,9 @@
 
 ## 图解博弈论
 
+新增独立漫画专题：[为什么有些威胁根本不可信？｜市场进入博弈](visuals/credible-threat-market-entry.md)。含六格配图、完整策略、逆向归纳、NE/SPNE 核算与两道逐步解析的练习；不占用九讲原有编号。
+
+
 新增 [九讲图解学习专区](visuals/README.md)。以图形解释均衡的形成机制，包含：
 
 - [Cournot 最佳反应函数与纳什均衡交点](visuals/02-market-competition.md)：原创精确 SVG 坐标图，区分同时产量与先后产量。
